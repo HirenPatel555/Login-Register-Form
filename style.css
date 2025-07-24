@@ -1,0 +1,142 @@
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #6dd5fa, #2980b9);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  width: 800px;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px;
+  gap: 30px;
+}
+
+/* Form Box */
+.form-box {
+  flex: 1 1 45%;
+  padding: 30px;
+  background: #f1f3f8;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: none;
+}
+
+.form-box.active{
+    display: block;
+}
+
+.form-box:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Structure */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  text-align: center;
+  font-size: 26px;
+}
+
+/* Input & Select */
+input,
+select {
+  padding: 12px 15px;
+  margin-bottom: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #222;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  display: block;
+}
+
+input:focus,
+select:focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
+  outline: none;
+}
+
+/* Buttons */
+button {
+  padding: 14px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background-color: #1f6394;
+  transform: translateY(-2px);
+}
+
+/* Text and Links */
+p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 12px;
+  color: #333;
+}
+
+p a {
+  color: #2980b9;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+p a:hover {
+  color: #1f6394;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    gap: 20px;
+  }
+
+  .form-box {
+    width: 100%;
+  }
+}
