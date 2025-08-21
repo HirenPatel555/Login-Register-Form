@@ -5,6 +5,32 @@ session_start();
 require_once 'db.php';
 
 if (isset($_POST['register'])) {
+    // Trim inputs to avoid spaces
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $role = trim($_POST['role']);
+
+    // Initialize error array
+    $errors = [];
+
+    // 1. Check empty fields
+    if (empty($name) || empty($email) || empty($password) || empty($role)) {
+        $errors[] = "All fields are required!";
+    }
+
+    // 2. Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format!";
+    }
+
+    // 3. Password length check
+    if (strlen($password) < 6) {
+        $errors[] = "Password must be at least 6 characters!";
+    }
+}
+
+if (empty($errors)) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
